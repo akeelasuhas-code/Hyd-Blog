@@ -1,0 +1,431 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Sakura Container */
+#sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.sakura-petal {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/sakura.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    animation: float linear infinite;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 70vh;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #8B0000;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    min-height: 70vh;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.name-section {
+    padding: 2rem;
+    border-right: 2px solid #8B0000;
+}
+
+.main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #FFB6C1;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.visual-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.geometric-accent {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #8B0000;
+    background: linear-gradient(45deg, transparent 48%, #8B0000 48%, #8B0000 52%, transparent 52%);
+    transform: rotate(45deg);
+}
+
+.sharp-border {
+    width: 150px;
+    height: 3px;
+    background-color: #FFB6C1;
+    position: relative;
+}
+
+.sharp-border::before,
+.sharp-border::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.sharp-border::before {
+    left: -10px;
+    top: -8px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #FFB6C1 transparent transparent;
+}
+
+.sharp-border::after {
+    right: -10px;
+    top: -8px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #FFB6C1;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 2rem;
+    background: #1a1a1a;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-scroll {
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #8B0000 0%, #660000 100%);
+    border: 2px solid #ffffff;
+    padding: 3rem 4rem;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
+}
+
+.contact-scroll::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        );
+    pointer-events: none;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.contact-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* About Section */
+.about-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-top: 3px solid #8B0000;
+    position: relative;
+    z-index: 2;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid #8B0000;
+    padding: 3rem;
+    background: rgba(42, 42, 42, 0.8);
+}
+
+.about-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: #FFB6C1;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.about-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background: #0a0a0a;
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid #8B0000;
+    position: relative;
+    z-index: 2;
+}
+
+.footer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #FFB6C1;
+    opacity: 0.8;
+}
+
+/* Sakura Animation */
+@keyframes float {
+    0% {
+        transform: translateY(-100px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(calc(100vh + 100px)) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .name-section {
+        border-right: none;
+        border-bottom: 2px solid #8B0000;
+        padding-bottom: 2rem;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .tagline {
+        font-size: 1.3rem;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-description {
+        font-size: 1.1rem;
+    }
+
+    .contact-scroll {
+        padding: 2.5rem 2rem;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .name-section {
+        padding: 1rem;
+    }
+
+    .visual-elements {
+        padding: 1rem;
+    }
+
+    .geometric-accent {
+        width: 80px;
+        height: 80px;
+    }
+
+    .sharp-border {
+        width: 100px;
+    }
+
+    .contact-section {
+        padding: 2rem 1rem;
+    }
+
+    .contact-scroll {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .about-section {
+        padding: 3rem 1rem;
+    }
+
+    .about-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-title {
+        font-size: 1.8rem;
+    }
+
+    .about-description {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    /* Reduce sakura animations on mobile */
+    .sakura-petal {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .sakura-petal {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .geometric-accent {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .hero-section,
+    .contact-section,
+    .about-section,
+    .footer {
+        border: 1px solid #000;
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .main-title,
+    .tagline,
+    .contact-text,
+    .about-title,
+    .about-description {
+        color: #000 !important;
+    }
+
+    #sakura-container {
+        display: none;
+    }
+}
