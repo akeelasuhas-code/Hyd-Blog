@@ -64,10 +64,8 @@ Created by Suhas Akella, HyderaDay is a student-focused blog that curates day-ou
 - Lazy loading for non-critical resources
 - Efficient DOM manipulation
 
-## Getting Started
 
-Simply open `index.html` in a modern web browser to view the landing page. No build process or dependencies required.
 
 ## License
 
-© 2024 Suhas Akella. All rights reserved.
+© 2025 Suhas Akella. All rights reserved.
