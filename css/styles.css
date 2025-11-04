@@ -220,7 +220,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--color-paper-white);
 }
 
 /* About Section */
