@@ -1,3 +1,22 @@
+/* CSS Custom Properties System */
+:root {
+    /* Primary Colors */
+    --color-samurai-black: #111111;
+    --color-samurai-red: #8B0000;
+    --color-samurai-red-bright: #CC0000;
+    --color-sakura-pink: #FFB6C1;
+    --color-sakura-pink-warm: #FFC0CB;
+    --color-paper-white: #f5f5f5;
+
+    /* Gradient Definitions */
+    --gradient-samurai-red: linear-gradient(135deg, var(--color-samurai-red) 0%, var(--color-samurai-red-bright) 100%);
+    --gradient-samurai-border: linear-gradient(90deg, var(--color-samurai-black) 0%, var(--color-samurai-red) 50%, var(--color-samurai-black) 100%);
+
+    /* Texture Filters */
+    --filter-noise-subtle: contrast(1.05) brightness(1.02);
+    --filter-metallic: contrast(1.1) saturate(0.8) brightness(0.95);
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -11,8 +30,8 @@ html {
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: var(--color-samurai-black);
+    color: var(--color-paper-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -56,11 +75,12 @@ body {
 /* Hero Section */
 .hero-section {
     min-height: 70vh;
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    border: 3px solid #8B0000;
+    background: linear-gradient(135deg, var(--color-samurai-black) 0%, #0a0a0a 100%);
+    border: 3px solid var(--color-samurai-red);
     position: relative;
     overflow: hidden;
     z-index: 2;
+    margin-top: 80px; /* Account for fixed navigation */
 }
 
 .hero-content {
@@ -75,14 +95,14 @@ body {
 
 .name-section {
     padding: 2rem;
-    border-right: 2px solid #8B0000;
+    border-right: 2px solid var(--color-samurai-red);
 }
 
 .main-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-paper-white);
     text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
     margin-bottom: 1rem;
     line-height: 1.1;
@@ -92,7 +112,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.5rem;
-    color: #FFB6C1;
+    color: var(--color-sakura-pink);
     font-weight: 400;
     line-height: 1.4;
 }
@@ -109,15 +129,15 @@ body {
 .geometric-accent {
     width: 120px;
     height: 120px;
-    border: 2px solid #8B0000;
-    background: linear-gradient(45deg, transparent 48%, #8B0000 48%, #8B0000 52%, transparent 52%);
+    border: 2px solid var(--color-samurai-red);
+    background: linear-gradient(45deg, transparent 48%, var(--color-samurai-red) 48%, var(--color-samurai-red) 52%, transparent 52%);
     transform: rotate(45deg);
 }
 
 .sharp-border {
     width: 150px;
     height: 3px;
-    background-color: #FFB6C1;
+    background-color: var(--color-sakura-pink);
     position: relative;
 }
 
@@ -134,20 +154,20 @@ body {
     left: -10px;
     top: -8px;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #FFB6C1 transparent transparent;
+    border-color: transparent var(--color-sakura-pink) transparent transparent;
 }
 
 .sharp-border::after {
     right: -10px;
     top: -8px;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #FFB6C1;
+    border-color: transparent transparent transparent var(--color-sakura-pink);
 }
 
 /* Contact Section */
 .contact-section {
     padding: 4rem 2rem;
-    background: #1a1a1a;
+    background: #0a0a0a;
     position: relative;
     z-index: 2;
 }
@@ -155,8 +175,8 @@ body {
 .contact-scroll {
     max-width: 600px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #8B0000 0%, #660000 100%);
-    border: 2px solid #ffffff;
+    background: var(--gradient-samurai-red);
+    border: 2px solid var(--color-paper-white);
     padding: 3rem 4rem;
     position: relative;
     box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
@@ -201,14 +221,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--color-paper-white);
 }
 
 /* About Section */
 .about-section {
     padding: 5rem 2rem;
-    background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 100%);
-    border-top: 3px solid #8B0000;
+    background: linear-gradient(180deg, #0a0a0a 0%, var(--color-samurai-black) 100%);
+    border-top: 3px solid var(--color-samurai-red);
     position: relative;
     z-index: 2;
 }
@@ -217,16 +237,16 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    border: 2px solid #8B0000;
+    border: 2px solid var(--color-samurai-red);
     padding: 3rem;
-    background: rgba(42, 42, 42, 0.8);
+    background: rgba(17, 17, 17, 0.8);
 }
 
 .about-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
-    color: #FFB6C1;
-    border-bottom: 2px solid #8B0000;
+    color: var(--color-sakura-pink);
+    border-bottom: 2px solid var(--color-samurai-red);
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     display: inline-block;
@@ -236,7 +256,7 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #ffffff;
+    color: var(--color-paper-white);
     text-align: center;
 }
 
@@ -245,7 +265,7 @@ body {
     background: #0a0a0a;
     padding: 2rem;
     text-align: center;
-    border-top: 2px solid #8B0000;
+    border-top: 2px solid var(--color-samurai-red);
     position: relative;
     z-index: 2;
 }
@@ -253,8 +273,148 @@ body {
 .footer p {
     font-family: 'Roboto', sans-serif;
     font-size: 0.9rem;
-    color: #FFB6C1;
+    color: var(--color-sakura-pink);
     opacity: 0.8;
+}
+
+/* Katana Preloader Styles */
+.katana-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-samurai-black);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.katana-blade {
+    width: 200px;
+    height: 4px;
+    background: var(--gradient-samurai-red);
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: katana-swipe 1.5s cubic-bezier(0.4, 0.0, 0.2, 1.0) forwards;
+    position: relative;
+}
+
+.katana-blade::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translateX(-100%);
+    animation: katana-shimmer 0.8s ease-out 0.7s forwards;
+}
+
+@keyframes katana-swipe {
+    0% { transform: scaleX(0); }
+    60% { transform: scaleX(1); }
+    100% { transform: scaleX(1); }
+}
+
+@keyframes katana-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Main Navigation */
+.main-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid;
+    border-image: var(--gradient-samurai-border) 1;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-sakura-pink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: var(--color-sakura-pink-warm);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--color-paper-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-samurai-red);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.nav-link:hover::before {
+    left: 0;
+}
+
+.nav-link.active {
+    color: var(--color-sakura-pink);
+    border-color: var(--color-samurai-red);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+    }
 }
 
 /* Sakura Animation */
@@ -294,7 +454,7 @@ body {
 
     .name-section {
         border-right: none;
-        border-bottom: 2px solid #8B0000;
+        border-bottom: 2px solid var(--color-samurai-red);
         padding-bottom: 2rem;
     }
 
@@ -391,6 +551,259 @@ body {
     }
 }
 
+/* Places Page Styles */
+.places-header {
+    background: linear-gradient(135deg, var(--color-samurai-black) 0%, #0a0a0a 100%);
+    border-bottom: 3px solid var(--color-samurai-red);
+    padding: 8rem 2rem 4rem; /* Extra top padding for fixed nav */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Account for fixed navigation */
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--color-paper-white);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+}
+
+.page-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--color-sakura-pink);
+    font-style: italic;
+}
+
+.places-main {
+    padding: 2rem 1rem;
+    background: var(--color-samurai-black);
+}
+
+.budget-category {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 2px solid var(--color-samurai-red);
+    background: rgba(10, 10, 10, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.category-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.9s ease;
+    z-index: 1;
+}
+
+.category-header:hover::before {
+    left: 100%;
+}
+
+.category-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(139, 0, 0, 0.2);
+    border-color: var(--color-samurai-red-bright);
+}
+
+.category-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-samurai-red);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--color-sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.budget-range {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-samurai-red-bright);
+    margin-bottom: 1rem;
+}
+
+.category-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--color-paper-white);
+    opacity: 0.9;
+}
+
+.places-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr; /* Mobile-first single column */
+}
+
+.place-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid var(--color-samurai-red);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.place-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.3) 20%,
+        rgba(255,255,255,0.8) 50%,
+        rgba(255,255,255,0.3) 80%,
+        transparent
+    );
+    transition: left 0.9s ease;
+    z-index: 1;
+}
+
+.place-card:hover::before {
+    left: 100%;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
+    border-color: var(--color-samurai-red-bright);
+}
+
+.place-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--color-samurai-red) 0%, var(--color-samurai-red-bright) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-paper-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.place-content {
+    padding: 1.5rem;
+}
+
+.place-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.place-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--color-paper-white);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.place-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.budget-info {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-samurai-red-bright);
+    font-weight: bold;
+}
+
+.timing-info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-paper-white);
+    opacity: 0.8;
+}
+
+/* Responsive Design for Places Page */
+@media (min-width: 768px) {
+    .places-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+    }
+
+    .places-main {
+        padding: 3rem 2rem;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+    }
+
+    .category-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .places-grid {
+        grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+    }
+
+    .places-main {
+        padding: 4rem 3rem;
+    }
+
+    .place-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .page-title {
+        font-size: 4rem;
+    }
+
+    .category-title {
+        font-size: 3rem;
+    }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     .sakura-petal {
@@ -403,6 +816,12 @@ body {
 
     .geometric-accent {
         transform: none;
+    }
+
+    .place-card::before,
+    .place-card:hover {
+        transform: none;
+        transition: none;
     }
 }
 

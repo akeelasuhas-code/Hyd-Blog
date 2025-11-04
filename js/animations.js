@@ -69,7 +69,9 @@ class SakuraAnimation {
         const duration = Math.random() * 10 + 15; // 15-25 seconds
         const delay = Math.random() * 5;
         const startX = Math.random() * window.innerWidth;
-        const swayAmount = Math.random() * 50 + 20;
+        const swayAmount = Math.random() * 80 + 40; // Increased sway for more dramatic movement
+        const rotationSpeed = Math.random() * 3 + 1; // Rotation speed multiplier
+        const windEffect = Math.random() * 30 - 15; // Wind effect (-15 to +15)
 
         // Set petal styles
         petal.style.cssText = `
@@ -80,10 +82,13 @@ class SakuraAnimation {
             animation-duration: ${duration}s;
             animation-delay: ${delay}s;
             --sway-amount: ${swayAmount}px;
+            --rotation-speed: ${rotationSpeed};
+            --wind-effect: ${windEffect}px;
+            will-change: transform, opacity;
         `;
 
-        // Add custom animation with sway
-        this.addSwayAnimation(petal, duration, swayAmount);
+        // Add enhanced animation with realistic physics
+        this.addEnhancedAnimation(petal, duration, swayAmount, rotationSpeed, windEffect);
 
         this.container.appendChild(petal);
         this.petals.push(petal);
@@ -94,18 +99,46 @@ class SakuraAnimation {
         }, (duration + delay) * 1000);
     }
 
-    addSwayAnimation(petal, duration, swayAmount) {
-        // Create keyframes for this specific petal
+    addEnhancedAnimation(petal, duration, swayAmount, rotationSpeed, windEffect) {
+        const animationId = `enhanced-sakura-${Date.now()}-${Math.random()}`;
+
+        // Create enhanced keyframes with realistic physics
         const keyframes = `
-            @keyframes sway-${Date.now()}-${Math.random()} {
-                0%, 100% {
-                    transform: translateX(0);
+            @keyframes ${animationId} {
+                0% {
+                    transform: translateY(-100px) translateX(0) rotateZ(0deg);
+                    opacity: 0;
+                }
+                5% {
+                    opacity: 0.6;
+                }
+                15% {
+                    transform: translateY(15vh) translateX(${swayAmount * 0.3}px) rotateZ(${rotationSpeed * 45}deg);
                 }
                 25% {
-                    transform: translateX(${swayAmount}px);
+                    transform: translateY(25vh) translateX(${-swayAmount * 0.2 + windEffect}px) rotateZ(${-rotationSpeed * 30}deg);
+                }
+                35% {
+                    transform: translateY(35vh) translateX(${swayAmount * 0.6}px) rotateZ(${rotationSpeed * 60}deg);
+                }
+                50% {
+                    transform: translateY(50vh) translateX(${-swayAmount * 0.4 + windEffect * 1.5}px) rotateZ(${-rotationSpeed * 90}deg);
+                }
+                65% {
+                    transform: translateY(65vh) translateX(${swayAmount * 0.8}px) rotateZ(${rotationSpeed * 120}deg);
                 }
                 75% {
-                    transform: translateX(${-swayAmount}px);
+                    transform: translateY(75vh) translateX(${-swayAmount * 0.3 + windEffect * 2}px) rotateZ(${-rotationSpeed * 60}deg);
+                }
+                85% {
+                    opacity: 0.6;
+                }
+                95% {
+                    transform: translateY(95vh) translateX(${swayAmount * 0.5 + windEffect * 3}px) rotateZ(${rotationSpeed * 180}deg);
+                }
+                100% {
+                    transform: translateY(calc(100vh + 100px)) translateX(${swayAmount + windEffect * 4}px) rotateZ(${rotationSpeed * 360}deg);
+                    opacity: 0;
                 }
             }
         `;
@@ -115,14 +148,29 @@ class SakuraAnimation {
         styleSheet.textContent = keyframes;
         document.head.appendChild(styleSheet);
 
-        // Apply both float and sway animations
-        petal.style.animation = `float ${duration}s linear infinite, sway-${Date.now()}-${Math.random()} ${duration / 2}s ease-in-out infinite`;
+        // Apply the enhanced animation
+        petal.style.animation = `${animationId} ${duration}s linear infinite`;
+
+        // Store animation reference for cleanup
+        petal.dataset.animationId = animationId;
+        petal.dataset.styleSheetId = styleSheet.textContent.length;
     }
 
     removePetal(petal) {
         const index = this.petals.indexOf(petal);
         if (index > -1) {
             this.petals.splice(index, 1);
+        }
+
+        // Clean up animation styles
+        if (petal.dataset.animationId) {
+            // Find and remove the style element for this animation
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => {
+                if (style.textContent.includes(petal.dataset.animationId)) {
+                    style.remove();
+                }
+            });
         }
 
         if (petal.parentNode) {
@@ -135,6 +183,11 @@ class SakuraAnimation {
                 this.createPetal();
             }, Math.random() * 2000);
         }
+    }
+
+    // Legacy method for backwards compatibility
+    addSwayAnimation(petal, duration, swayAmount) {
+        this.addEnhancedAnimation(petal, duration, swayAmount, 1.5, 0);
     }
 
     handleResize() {
