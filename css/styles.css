@@ -80,6 +80,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 2;
+    margin-top: 80px; /* Account for fixed navigation */
 }
 
 .hero-content {
