@@ -94,7 +94,7 @@ body {
 
 .name-section {
     padding: 2rem;
-    border-right: 2px solid #8B0000;
+    border-right: 2px solid var(--color-samurai-red);
 }
 
 .main-title {
