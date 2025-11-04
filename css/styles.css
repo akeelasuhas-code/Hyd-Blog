@@ -255,7 +255,7 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #ffffff;
+    color: var(--color-paper-white);
     text-align: center;
 }
 
