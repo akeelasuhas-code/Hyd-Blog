@@ -627,7 +627,7 @@ body {
     border-color: var(--color-samurai-red-bright);
 }
 
-.category-header::before {
+.category-header::after {
     content: '';
     position: absolute;
     top: 0;
