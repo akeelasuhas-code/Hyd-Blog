@@ -30,8 +30,8 @@ html {
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: var(--color-samurai-black);
+    color: var(--color-paper-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
