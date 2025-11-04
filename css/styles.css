@@ -1,3 +1,22 @@
+/* CSS Custom Properties System */
+:root {
+    /* Primary Colors */
+    --color-samurai-black: #111111;
+    --color-samurai-red: #8B0000;
+    --color-samurai-red-bright: #CC0000;
+    --color-sakura-pink: #FFB6C1;
+    --color-sakura-pink-warm: #FFC0CB;
+    --color-paper-white: #f5f5f5;
+
+    /* Gradient Definitions */
+    --gradient-samurai-red: linear-gradient(135deg, var(--color-samurai-red) 0%, var(--color-samurai-red-bright) 100%);
+    --gradient-samurai-border: linear-gradient(90deg, var(--color-samurai-black) 0%, var(--color-samurai-red) 50%, var(--color-samurai-black) 100%);
+
+    /* Texture Filters */
+    --filter-noise-subtle: contrast(1.05) brightness(1.02);
+    --filter-metallic: contrast(1.1) saturate(0.8) brightness(0.95);
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
