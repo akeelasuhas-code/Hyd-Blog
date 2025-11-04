@@ -264,7 +264,7 @@ body {
     background: #0a0a0a;
     padding: 2rem;
     text-align: center;
-    border-top: 2px solid #8B0000;
+    border-top: 2px solid var(--color-samurai-red);
     position: relative;
     z-index: 2;
 }
@@ -272,7 +272,7 @@ body {
 .footer p {
     font-family: 'Roboto', sans-serif;
     font-size: 0.9rem;
-    color: #FFB6C1;
+    color: var(--color-sakura-pink);
     opacity: 0.8;
 }
 
