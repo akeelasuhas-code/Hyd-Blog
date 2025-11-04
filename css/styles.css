@@ -551,6 +551,228 @@ body {
     }
 }
 
+/* Places Page Styles */
+.places-header {
+    background: linear-gradient(135deg, var(--color-samurai-black) 0%, #0a0a0a 100%);
+    border-bottom: 3px solid var(--color-samurai-red);
+    padding: 8rem 2rem 4rem; /* Extra top padding for fixed nav */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Account for fixed navigation */
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--color-paper-white);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+}
+
+.page-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--color-sakura-pink);
+    font-style: italic;
+}
+
+.places-main {
+    padding: 2rem 1rem;
+    background: var(--color-samurai-black);
+}
+
+.budget-category {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 2px solid var(--color-samurai-red);
+    background: rgba(10, 10, 10, 0.6);
+    position: relative;
+}
+
+.category-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-samurai-red);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--color-sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.budget-range {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-samurai-red-bright);
+    margin-bottom: 1rem;
+}
+
+.category-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--color-paper-white);
+    opacity: 0.9;
+}
+
+.places-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr; /* Mobile-first single column */
+}
+
+.place-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid var(--color-samurai-red);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.place-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.9s ease;
+    z-index: 1;
+}
+
+.place-card:hover::before {
+    left: 100%;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
+    border-color: var(--color-samurai-red-bright);
+}
+
+.place-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--color-samurai-red) 0%, var(--color-samurai-red-bright) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-paper-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.place-content {
+    padding: 1.5rem;
+}
+
+.place-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.place-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--color-paper-white);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.place-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.budget-info {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-samurai-red-bright);
+    font-weight: bold;
+}
+
+.timing-info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-paper-white);
+    opacity: 0.8;
+}
+
+/* Responsive Design for Places Page */
+@media (min-width: 768px) {
+    .places-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+    }
+
+    .places-main {
+        padding: 3rem 2rem;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+    }
+
+    .category-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .places-grid {
+        grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+    }
+
+    .places-main {
+        padding: 4rem 3rem;
+    }
+
+    .place-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .page-title {
+        font-size: 4rem;
+    }
+
+    .category-title {
+        font-size: 3rem;
+    }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     .sakura-petal {
@@ -563,6 +785,12 @@ body {
 
     .geometric-accent {
         transform: none;
+    }
+
+    .place-card::before,
+    .place-card:hover {
+        transform: none;
+        transition: none;
     }
 }
 
