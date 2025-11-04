@@ -153,14 +153,14 @@ body {
     left: -10px;
     top: -8px;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #FFB6C1 transparent transparent;
+    border-color: transparent var(--color-sakura-pink) transparent transparent;
 }
 
 .sharp-border::after {
     right: -10px;
     top: -8px;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #FFB6C1;
+    border-color: transparent transparent transparent var(--color-sakura-pink);
 }
 
 /* Contact Section */
