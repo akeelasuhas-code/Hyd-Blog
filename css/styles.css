@@ -128,8 +128,8 @@ body {
 .geometric-accent {
     width: 120px;
     height: 120px;
-    border: 2px solid #8B0000;
-    background: linear-gradient(45deg, transparent 48%, #8B0000 48%, #8B0000 52%, transparent 52%);
+    border: 2px solid var(--color-samurai-red);
+    background: linear-gradient(45deg, transparent 48%, var(--color-samurai-red) 48%, var(--color-samurai-red) 52%, transparent 52%);
     transform: rotate(45deg);
 }
 
