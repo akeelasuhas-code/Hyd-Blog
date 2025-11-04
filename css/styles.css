@@ -136,7 +136,7 @@ body {
 .sharp-border {
     width: 150px;
     height: 3px;
-    background-color: #FFB6C1;
+    background-color: var(--color-sakura-pink);
     position: relative;
 }
 
