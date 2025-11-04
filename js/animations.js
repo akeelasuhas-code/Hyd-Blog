@@ -162,6 +162,17 @@ class SakuraAnimation {
             this.petals.splice(index, 1);
         }
 
+        // Clean up animation styles
+        if (petal.dataset.animationId) {
+            // Find and remove the style element for this animation
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => {
+                if (style.textContent.includes(petal.dataset.animationId)) {
+                    style.remove();
+                }
+            });
+        }
+
         if (petal.parentNode) {
             petal.parentNode.removeChild(petal);
         }
@@ -172,6 +183,11 @@ class SakuraAnimation {
                 this.createPetal();
             }, Math.random() * 2000);
         }
+    }
+
+    // Legacy method for backwards compatibility
+    addSwayAnimation(petal, duration, swayAmount) {
+        this.addEnhancedAnimation(petal, duration, swayAmount, 1.5, 0);
     }
 
     handleResize() {
