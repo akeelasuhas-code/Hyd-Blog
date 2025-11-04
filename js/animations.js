@@ -69,7 +69,9 @@ class SakuraAnimation {
         const duration = Math.random() * 10 + 15; // 15-25 seconds
         const delay = Math.random() * 5;
         const startX = Math.random() * window.innerWidth;
-        const swayAmount = Math.random() * 50 + 20;
+        const swayAmount = Math.random() * 80 + 40; // Increased sway for more dramatic movement
+        const rotationSpeed = Math.random() * 3 + 1; // Rotation speed multiplier
+        const windEffect = Math.random() * 30 - 15; // Wind effect (-15 to +15)
 
         // Set petal styles
         petal.style.cssText = `
@@ -80,10 +82,13 @@ class SakuraAnimation {
             animation-duration: ${duration}s;
             animation-delay: ${delay}s;
             --sway-amount: ${swayAmount}px;
+            --rotation-speed: ${rotationSpeed};
+            --wind-effect: ${windEffect}px;
+            will-change: transform, opacity;
         `;
 
-        // Add custom animation with sway
-        this.addSwayAnimation(petal, duration, swayAmount);
+        // Add enhanced animation with realistic physics
+        this.addEnhancedAnimation(petal, duration, swayAmount, rotationSpeed, windEffect);
 
         this.container.appendChild(petal);
         this.petals.push(petal);
